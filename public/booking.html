@@ -1,56 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start booking</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.2.0/dist/themes/light.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.2.0/dist/shoelace.js"></script>
-    <link rel="stylesheet" href="index.css"/>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start booking</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.2.0/dist/themes/light.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.2.0/dist/shoelace.js"></script>
+  <link rel="stylesheet" href="index.css" />
 
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
-    <script>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
+  <script>
 
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
-        });
-        calendar.render();
+    document.addEventListener('DOMContentLoaded', function () {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth'
       });
+      calendar.render();
+    });
 
-    </script>
+  </script>
 
 </head>
-<body>
-    <h1>Start booking</h1>
 
-    <div id="calendar"></div>
-    
-    <form method="post" action="/api/book">
-      <p>
-          <label>Hundenavn:</label>
-          <input name="dog" type="text"/>
-      </p>
-      <p>
-          <label>Dag:</label>
-          <input name="day" type="date"/>
-      </p>
-      <p>
-          <label>Klokken:</label>
-          <inputname="time" type="text"/>
-      </p>
-      <p>
-          <input type="submit" value="Send inn!"/>
-      </p>
+<body>
+  <h1>Start booking</h1>
+
+  <sl-button-group label="Alignment">
+    <sl-button><a href="./index.html">Startside</a></sl-button>
+    <sl-button><a href="./booking.html">Start Booking</a></sl-button>
+    <sl-button><a href="./info.html">Informasjon</a></sl-button>
+  </sl-button-group>
+
+  <div id="calendar"></div>
+
+  <form method="post" action="/api/book">
+    <p>
+      <label>Hundenavn:</label>
+      <input name="dog" type="text" />
+    </p>
+    <p>
+      <label>Dag:</label>
+      <input name="day" type="date" />
+    </p>
+    <p>
+      <label>Klokken:</label>
+      <select>
+        <option value="17:00">klokka 5</option>
+        <option value="17:30">klokka halv 6</option>
+        <option value="18:00">klokka 6</option>
+        <option value="18:30">klokka halv 7</option>
+      </select>
+    </p>
+    <p>
+      <input type="submit" value="Send inn!" />
+    </p>
   </form>
 
-    <sl-button-group label="Alignment">
-        <sl-button><a href="./index.html">Startside</a></sl-button>
-        <sl-button><a href="./booking.html">Start Booking</a></sl-button>
-        <sl-button><a href="./info.html">Informasjon</a></sl-button>
-    </sl-button-group>
+
 
 </body>
+
 </html>
