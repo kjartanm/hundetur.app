@@ -1,7 +1,8 @@
 export async function onRequestPost(context) {
     try {
         let input = await context.request.formData();
-        let pretty = JSON.stringify([...input], null, 2);
+        let booking = JSON.stringify([...input], null, 2);
+        console.log("booking: ", booking);
 
         let send_request = new Request('https://api.mailchannels.net/tx/v1/send', {
             method: 'POST',
@@ -18,11 +19,11 @@ export async function onRequestPost(context) {
                     email: 'kjartan@muller.no',
                     name: 'Workers - MailChannels integration',
                 },
-                subject: 'Look! No servers',
+                subject: 'Ønsker å få luftet hunden',
                 content: [
                     {
                         type: 'text/plain',
-                        value: 'And no email service accounts and all for free too!',
+                        value: booking,
                     },
                 ],
             }),
